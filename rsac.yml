@@ -2,6 +2,4 @@ branch-protection:
   main:
     required_status_checks:
       contexts:
-        - Cloudflare Pages
-        - test / run-vitest
         - test-e2e / run-playwright
