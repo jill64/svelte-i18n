@@ -1,2 +1,2 @@
-# svelte-i18n
-i18n toolkit for SvelteKit
+<!----- BEGIN GHOST DOCS HEADER ----->
+<!----- END GHOST DOCS HEADER ----->
