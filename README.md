@@ -7,3 +7,68 @@
 🌍 i18n toolkit for SvelteKit
 
 <!----- END GHOST DOCS HEADER ----->
+
+## Install
+
+```sh
+npm i @jill64/svelte-i18n
+```
+
+## Example
+
+### Setup
+
+```js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n'
+
+const { match, locale, translate } = init({
+  locales: ['en', 'ja'],
+  slug: '[locale=locale]',
+  defaultLocale: 'en'
+})
+```
+
+## Directory
+
+```
+src
+|
+|-- params
+|   |
+|   |-- locale.js
+|
+|-- routes
+    |
+    |-- [locale=locale]
+        |
+        |-- +page.svelte
+```
+
+## Usage
+
+```js
+// src/params/locale.js
+export { match } from '$lib/i18n'
+```
+
+```svelte
+<!-- src/routes/[locale=locale]/+page.svelte -->
+<script>
+  import { translate, locale } from '$lib/i18n'
+
+  // src/routes/en => 'en'
+  // src/routes/ja => 'ja'
+  // src/routes/invalid-param => 'en' (defaultLocale)
+  console.log($locale)
+</script>
+
+<h1>
+  <!-- src/routes/en => English -->
+  <!-- src/routes/ja => 日本語 -->
+  {$translate({
+    en: 'English',
+    ja: '日本語'
+  })}
+</h1>
+```
