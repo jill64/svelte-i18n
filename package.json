@@ -1,0 +1,62 @@
+{
+  "name": "@jill64/svelte-i18n",
+  "version": "0.0.1",
+  "description": "i18n toolkit for SvelteKit",
+  "main": "dist/index.js",
+  "type": "module",
+  "license": "MIT",
+  "author": "jill64 <intents.turrets0h@icloud.com> (https://github.com/jill64)",
+  "bugs": "https://github.com/jill64/@jill64/svelte-i18n/issues",
+  "homepage": "https://github.com/jill64/@jill64/svelte-i18n#readme",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jill64/@jill64/svelte-i18n.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "i18n",
+    "svelte",
+    "sveltekit",
+    "tool"
+  ],
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
+    "preview": "npm run build && vite preview",
+    "package": "svelte-kit sync && npx @sveltejs/package && npx publint",
+    "check": "svelte-kit sync && npx svelte-check",
+    "lint": "npx eslint . && npm run check",
+    "format": "npx prettier --write . --plugin prettier-plugin-svelte .",
+    "test": "playwright test"
+  },
+  "peerDependencies": {
+    "svelte": "^4.0.0",
+    "@sveltejs/kit": "^1.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.39.0",
+    "@sveltejs/adapter-static": "2.0.3",
+    "@sveltejs/kit": "1.27.2",
+    "@typescript-eslint/eslint-plugin": "6.9.1",
+    "@typescript-eslint/parser": "6.9.1",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-deprecation": "2.0.0",
+    "eslint-plugin-svelte": "2.34.0",
+    "prettier-plugin-svelte": "3.0.3",
+    "svelte": "4.2.2",
+    "typescript": "5.2.2",
+    "vite": "4.5.0"
+  }
+}
