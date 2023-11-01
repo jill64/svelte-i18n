@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('en', async ({ page }) => {
-  await page.goto('/svelte-i18n/en')
+  await page.goto('/en')
 
   await expect(
     page.getByRole('heading', { name: 'Current Language : English' })
