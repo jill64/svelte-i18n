@@ -20,7 +20,7 @@ npm i @jill64/svelte-i18n
 
 Use a function to translate from the specified locales based on the current route parameters.
 
-```js
+```js:src/lib/i18n.js
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
@@ -56,7 +56,7 @@ const { locale, translate } = init({
 
 Quickly create links to different language versions of the current page.
 
-```js
+```js:src/lib/i18n.js
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
@@ -80,7 +80,7 @@ const { altered } = init({
 
 Use param matcher to add type checking for route parameters.
 
-```js
+```js:src/lib/i18n.js
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
@@ -91,7 +91,7 @@ const { match } = init({
 })
 ```
 
-```js
+```js:src/params/locale.js
 // src/params/locale.js
 export { match } from '$lib/i18n'
 ```
@@ -100,7 +100,7 @@ export { match } from '$lib/i18n'
 
 Create a link tag in the head element to another language based on the Locales to improve SEO.
 
-```js
+```js:src/lib/i18n.js
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
@@ -123,11 +123,42 @@ const {
 
 For example, if you are in `/[locale(en)]/foo/bar`, create the following tag in the `head` element
 
-```svelte
+```html
 <link rel="alternate" hreflang="ja" href="/ja/foo/bar" />
 <link
   rel="alternate"
   hreflang="x-default"
   href="default-language-href(optional)"
 />
+```
+
+## Attach html lang attribute
+
+Mainly at the time of SSR, the appropriate lang attribute is added to the html tag.
+
+```js:src/lib/i18n.js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n'
+
+const { attach } = init({
+  locales: ['en', 'ja'],
+  defaultLocale: 'en'
+})
+```
+
+```js:src/hooks.server.js
+// src/hooks.server.js
+import { attach as handle } from '$lib/i18n'
+```
+
+To use with any handle hook, use the `sequence` function.
+
+```js:src/hooks.server.js
+// src/hooks.server.js
+import { attach } from '$lib/i18n'
+import { sequence } from '@sveltejs/kit/hooks'
+
+export const handle = sequence(attach, () => {
+  // ... Your Handler Function
+})
 ```
