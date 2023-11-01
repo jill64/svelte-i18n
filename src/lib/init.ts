@@ -30,7 +30,6 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
   const altered = derived<Readable<Page>, (locale?: Locale) => string>(
     page,
     ({ route: { id: route_id }, url }) => {
-
       const replaceIndex = route_id
         ? route_id.split('/').indexOf(slug) + baseDepth
         : null
