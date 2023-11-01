@@ -80,7 +80,12 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     resolve(event, {
       transformPageChunk: ({ html }) => {
         const locale = getLocale(event.params)
-        return html.replace(/<html(.*?)>/, `<html$1 lang="${locale}">`)
+        return html.replace(/<html(.*?)>/, (match, p1) => {
+          if (!p1.includes('lang=')) {
+            return `<html${p1} lang="${locale}">`
+          }
+          return match.replace(/lang="(.*?)"/, `lang="${locale}"`)
+        })
       }
     })) satisfies Handle
 
