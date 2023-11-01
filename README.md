@@ -8,6 +8,8 @@
 
 <!----- END GHOST DOCS HEADER ----->
 
+## [Demo + Example (StackBlitz)](https://stackblitz.com/edit/jill64-svelte-i18n?file=src%2Flib%2Fi18n.js)
+
 ## Install
 
 ```sh
