@@ -1,6 +1,6 @@
 import { base } from '$app/paths'
 import { page } from '$app/stores'
-import type { Page } from '@sveltejs/kit'
+import type { Handle, Page } from '@sveltejs/kit'
 import { derived, type Readable } from 'svelte/store'
 import { store } from './store.js'
 import type { Options } from './types/Options.js'
@@ -15,13 +15,14 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
   const match = (value: string): value is Locale =>
     (locales as string[]).includes(value)
 
+  const getLocale = ({ [key]: param }: Partial<Page['params']>) =>
+    param && match(param) ? param : defaultLocale
+
   /**
    * Locale obtained from the specified slug.
    * If you are in an invalid locale, fallback to default locale.
    */
-  const locale = derived(page, ({ params: { [key]: param } }) =>
-    match(param) ? param : defaultLocale
-  )
+  const locale = derived(page, ($page) => getLocale($page.params))
 
   /**
    * Creates a string that replaces the current url with the specified locale.
@@ -72,10 +73,22 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
    */
   const translate = derived(locale, pick)
 
+  /**
+   * Attach the current locale to the html.
+   */
+  const attach = (({ event, resolve }) =>
+    resolve(event, {
+      transformPageChunk: ({ html }) => {
+        const locale = getLocale(event.params)
+        return html.replace(/<html(.*?)>/, `<html$1 lang="${locale}">`)
+      }
+    })) satisfies Handle
+
   return {
     locale,
     translate,
     altered,
-    match
+    match,
+    attach
   }
 }
