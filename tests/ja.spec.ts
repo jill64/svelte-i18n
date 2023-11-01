@@ -3,6 +3,9 @@ import { expect, test } from '@playwright/test'
 test('ja', async ({ page }) => {
   await page.goto('/ja')
 
+  const lang = await page.locator('html').getAttribute('lang')
+  expect(lang).toBe('ja')
+
   await expect(
     page.getByRole('heading', { name: '現在の言語 : 日本語' })
   ).toBeVisible()
