@@ -16,6 +16,9 @@ test('ja', async ({ page }) => {
     page.getByRole('heading', { name: 'Current Language : English' })
   ).toBeVisible()
 
+  const lang2 = await page.locator('html').getAttribute('lang')
+  expect(lang2).toBe('en')
+
   const page1Link = page.getByRole('link', { name: '1', exact: true })
 
   await expect(page1Link).toBeVisible()

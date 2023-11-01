@@ -1,17 +1,15 @@
 <script lang="ts">
   import { base } from '$app/paths'
   import { page } from '$app/stores'
-  import { LocaleAlternates } from '$lib'
+  import { LanguageManager, LocaleAlternates } from '$lib'
   import { translate } from '../i18n'
 </script>
 
+<LanguageManager />
 <LocaleAlternates />
-<header>
-  <a href={base}><h1>svelte-i18n</h1></a>
-  <a href="https://github.com/jill64/svelte-i18n">GitHub</a>
-</header>
+<a href={base}><h1>@jill64/svelte-i18n</h1></a>
 <main>
-  <span>{$page.url.href}</span>
+  <span>{$page.url.pathname}</span>
   <h2>
     {$translate({
       en: 'Current Language',
@@ -25,13 +23,6 @@
 </main>
 
 <style>
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-  }
-
   main {
     display: flex;
     flex-direction: column;

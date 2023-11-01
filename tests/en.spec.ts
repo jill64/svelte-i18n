@@ -16,6 +16,9 @@ test('en', async ({ page }) => {
     page.getByRole('heading', { name: '現在の言語 : 日本語' })
   ).toBeVisible()
 
+  const lang2 = await page.locator('html').getAttribute('lang')
+  expect(lang2).toBe('ja')
+
   const page2Link = page.getByRole('link', { name: '2', exact: true })
 
   await expect(page2Link).toBeVisible()
