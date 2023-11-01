@@ -71,9 +71,7 @@ const { altered } = init({
 </script>
 
 <!-- href="/ja/foo/bar" -->
-<a href={$altered('ja')}>
-  Jump to Japanese Version
-</a>
+<a href={$altered('ja')}> Jump to Japanese Version </a>
 ```
 
 ## With param matcher example
