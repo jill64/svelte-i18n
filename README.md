@@ -52,6 +52,79 @@ const { locale, translate } = init({
 </h1>
 ```
 
+## Bind html lang attribute
+
+Each time a locale change is detected on the client side, it is reflected in the `lang` attribute of the `html`
+
+```svelte
+<!-- src/routes/+layouts.svelte -->
+<script>
+  import { LanguageBinder } from '@jill64/svelte-i18n'
+</script>
+
+<LanguageBinder />
+```
+
+↓
+
+```html
+<!-- locale = 'en' | 'ja' -->
+<html lang="{locale}">
+  <!-- ... -->
+</html>
+```
+
+## Attach html lang attribute
+
+SSR uses the `attach` handler to add the lang attribute to html tags.
+
+```js:src/lib/i18n.js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n'
+
+const { attach } = init({
+  locales: ['en', 'ja'],
+  defaultLocale: 'en'
+})
+```
+
+```js:src/hooks.server.js
+// src/hooks.server.js
+import { attach as handle } from '$lib/i18n'
+```
+
+To use with any handle hook, use the `sequence` function.
+
+```js:src/hooks.server.js
+// src/hooks.server.js
+import { attach } from '$lib/i18n'
+import { sequence } from '@sveltejs/kit/hooks'
+
+export const handle = sequence(attach, () => {
+  // ... Your Handler Function
+})
+```
+
+## Route param matcher
+
+Use param matcher to add type checking for route parameters.
+
+```js:src/lib/i18n.js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n'
+
+const { match } = init({
+  locales: ['en', 'ja'],
+  slug: '[locale=locale]',
+  defaultLocale: 'en'
+})
+```
+
+```js:src/params/locale.js
+// src/params/locale.js
+export { match } from '$lib/i18n'
+```
+
 ## Switch Language
 
 Quickly create links to different language versions of the current page.
@@ -74,26 +147,6 @@ const { altered } = init({
 
 <!-- href="/ja/foo/bar" -->
 <a href={$altered('ja')}> Jump to Japanese Version </a>
-```
-
-## With param matcher example
-
-Use param matcher to add type checking for route parameters.
-
-```js:src/lib/i18n.js
-// src/lib/i18n.js
-import { init } from '@jill64/svelte-i18n'
-
-const { match } = init({
-  locales: ['en', 'ja'],
-  slug: '[locale=locale]',
-  defaultLocale: 'en'
-})
-```
-
-```js:src/params/locale.js
-// src/params/locale.js
-export { match } from '$lib/i18n'
 ```
 
 ## Locale Alternates
@@ -130,35 +183,4 @@ For example, if you are in `/[locale(en)]/foo/bar`, create the following tag in 
   hreflang="x-default"
   href="default-language-href(optional)"
 />
-```
-
-## Attach html lang attribute
-
-Mainly at the time of SSR, the appropriate lang attribute is added to the html tag.
-
-```js:src/lib/i18n.js
-// src/lib/i18n.js
-import { init } from '@jill64/svelte-i18n'
-
-const { attach } = init({
-  locales: ['en', 'ja'],
-  defaultLocale: 'en'
-})
-```
-
-```js:src/hooks.server.js
-// src/hooks.server.js
-import { attach as handle } from '$lib/i18n'
-```
-
-To use with any handle hook, use the `sequence` function.
-
-```js:src/hooks.server.js
-// src/hooks.server.js
-import { attach } from '$lib/i18n'
-import { sequence } from '@sveltejs/kit/hooks'
-
-export const handle = sequence(attach, () => {
-  // ... Your Handler Function
-})
 ```
