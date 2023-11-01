@@ -24,4 +24,10 @@ test('default', async ({ page }) => {
   await expect(page3Link).toBeVisible()
   await page3Link.click()
   await expect(page.getByText('ページ-3')).toBeVisible()
+
+  const prefix = await page.locator('html').getAttribute('prefix')
+  expect(prefix).toBe('p_test')
+
+  const suffix = await page.locator('html').getAttribute('suffix')
+  expect(suffix).toBe('test_s')
 })
