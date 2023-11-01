@@ -29,12 +29,12 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
    */
   const altered = derived<Readable<Page>, (locale?: Locale) => string>(
     page,
-    ({ route: { id: route_id }, url: { origin, search, pathname, hash } }) => {
+    ({ route: { id: route_id }, url }) => {
       const replaceIndex = route_id
         ? route_id.split('/').indexOf(slug) + baseDepth
         : null
 
-      const pathArray = pathname.split('/')
+      const pathArray = url.pathname.split('/')
 
       return (locale?: string) => {
         if (!replaceIndex) {
@@ -47,7 +47,10 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
           ...pathArray.slice(replaceIndex + 1)
         ].join('/')
 
-        return `${origin}${path}${search}${hash}`
+        const next = new URL(url)
+        next.pathname = path
+
+        return next.href
       }
     }
   )
