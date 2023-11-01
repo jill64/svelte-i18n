@@ -14,53 +14,30 @@
 npm i @jill64/svelte-i18n
 ```
 
-## Example
+## Quick Example
 
-### Setup
+Use a function to translate from the specified locales based on the current route parameters.
 
 ```js
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
-const { match, locale, translate } = init({
+const { locale, translate } = init({
   locales: ['en', 'ja'],
-  slug: '[locale=locale]',
+  slug: '[locale]',
   defaultLocale: 'en'
 })
 ```
 
-## Directory
-
-```
-src
-|
-|-- params
-|   |
-|   |-- locale.js
-|
-|-- routes
-    |
-    |-- [locale=locale]
-        |
-        |-- +page.svelte
-```
-
-## Usage
-
-```js
-// src/params/locale.js
-export { match } from '$lib/i18n'
-```
-
 ```svelte
-<!-- src/routes/[locale=locale]/+page.svelte -->
+<!-- src/routes/[locale]/+page.svelte -->
 <script>
   import { translate, locale } from '$lib/i18n'
 
   // src/routes/en => 'en'
   // src/routes/ja => 'ja'
   // src/routes/invalid-param => 'en' (defaultLocale)
-  console.log($locale)
+  $: console.log($locale)
 </script>
 
 <h1>
@@ -71,4 +48,86 @@ export { match } from '$lib/i18n'
     ja: '日本語'
   })}
 </h1>
+```
+
+## Switch Language
+
+Quickly create links to different language versions of the current page.
+
+```js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n'
+
+const { altered } = init({
+  locales: ['en', 'ja'],
+  defaultLocale: 'en'
+})
+```
+
+```svelte
+<!-- src/routes/[locale](en)/foo/bar/+page.svelte -->
+<script>
+  import { altered } from '$lib/i18n'
+</script>
+
+<!-- href="/ja/foo/bar" -->
+<a href={$altered('ja')}>
+  Jump to Japanese Version
+</a>
+```
+
+## With param matcher example
+
+Use param matcher to add type checking for route parameters.
+
+```js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n'
+
+const { match } = init({
+  locales: ['en', 'ja'],
+  slug: '[locale=locale]',
+  defaultLocale: 'en'
+})
+```
+
+```js
+// src/params/locale.js
+export { match } from '$lib/i18n'
+```
+
+## Locale Alternates
+
+Create a link tag in the head element to another language based on the Locales to improve SEO.
+
+```js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n'
+
+const {
+  /* ... */
+} = init({
+  locales: ['en', 'ja'],
+  defaultLocale: 'en'
+})
+```
+
+```svelte
+<!-- src/routes/+layout.svelte -->
+<script>
+  import { LocaleAlternates } from '@jill64/svelte-i18n'
+</script>
+
+<LocaleAlternates xDefaultHref="default-language-href(optional)" />
+```
+
+For example, if you are in `/[locale(en)]/foo/bar`, create the following tag in the `head` element
+
+```svelte
+<link rel="alternate" hreflang="ja" href="/ja/foo/bar" />
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href="default-language-href(optional)"
+/>
 ```
