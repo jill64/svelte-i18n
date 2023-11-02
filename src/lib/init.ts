@@ -84,7 +84,7 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
           if (!p1.includes('lang=')) {
             return `<html${p1} lang="${locale}">`
           }
-          return match.replace(/lang=["'](.*?)["']/, `lang="${locale}"`)  
+          return match.replace(/lang=["'](.*?)["']/, `lang="${locale}"`)
         })
       }
     })) satisfies Handle
