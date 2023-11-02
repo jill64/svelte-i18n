@@ -24,4 +24,10 @@ test('ja', async ({ page }) => {
   await expect(page1Link).toBeVisible()
   await page1Link.click()
   await expect(page.getByText('Page-1')).toBeVisible()
+
+  const prefix = await page.locator('html').getAttribute('prefix')
+  expect(prefix).toBe('p_test')
+
+  const suffix = await page.locator('html').getAttribute('suffix')
+  expect(suffix).toBe('test_s')
 })
