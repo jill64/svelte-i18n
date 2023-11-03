@@ -1,5 +1,6 @@
 import { base } from '$app/paths'
 import { page } from '$app/stores'
+import { transform } from '@jill64/svelte-html'
 import type { Handle, Page } from '@sveltejs/kit'
 import { derived, type Readable } from 'svelte/store'
 import { store } from './store.js'
@@ -78,15 +79,9 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
    */
   const attach = (({ event, resolve }) =>
     resolve(event, {
-      transformPageChunk: ({ html }) => {
-        const locale = getLocale(event.params)
-        return html.replace(/<html(.*?)>/, (match, p1) => {
-          if (!p1.includes('lang=')) {
-            return `<html${p1} lang="${locale}">`
-          }
-          return match.replace(/lang=["'](.*?)["']/, `lang="${locale}"`)
-        })
-      }
+      transformPageChunk: transform({
+        lang: getLocale(event.params)
+      })
     })) satisfies Handle
 
   return {
