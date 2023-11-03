@@ -16,14 +16,6 @@ npm i @jill64/svelte-i18n
 
 <!----- END GHOST DOCS HEADER ----->
 
-## [Demo + Example (StackBlitz)](https://stackblitz.com/edit/jill64-svelte-i18n?file=src%2Flib%2Fi18n.js)
-
-## Install
-
-```sh
-npm i @jill64/svelte-i18n
-```
-
 ## Quick Example
 
 Use a function to translate from the specified locales based on the current route parameters.
