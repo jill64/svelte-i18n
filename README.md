@@ -2,9 +2,17 @@
 
 # svelte-i18n
 
-[![npm-version](https://img.shields.io/npm/v/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![npm-license](https://img.shields.io/npm/l/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![npm-download-month](https://img.shields.io/npm/dm/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![npm-min-size](https://img.shields.io/bundlephobia/min/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![ci.yml](https://github.com/jill64/svelte-i18n/actions/workflows/ci.yml/badge.svg)](https://github.com/jill64/svelte-i18n/actions/workflows/ci.yml)
+[![npm-version](https://img.shields.io/npm/v/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![npm-license](https://img.shields.io/npm/l/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![npm-download-month](https://img.shields.io/npm/dm/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![npm-min-size](https://img.shields.io/bundlephobia/min/@jill64/svelte-i18n)](https://npmjs.com/package/@jill64/svelte-i18n) [![ci.yml](https://github.com/jill64/svelte-i18n/actions/workflows/ci.yml/badge.svg)](https://github.com/jill64/svelte-i18n/actions/workflows/ci.yml) [![stackblitz](https://img.shields.io/badge/StackBlitz-@jill64/svelte-i18n-dodgerblue)](https://stackblitz.com/edit/jill64-svelte-i18n?file=src%2Flib%2Fi18n.js)
 
 🌍 i18n toolkit for SvelteKit
+
+## [Demo](https://stackblitz.com/edit/jill64-svelte-i18n?file=src%2Flib%2Fi18n.js)
+
+## Install
+
+```sh
+npm i @jill64/svelte-i18n
+```
 
 <!----- END GHOST DOCS HEADER ----->
 
