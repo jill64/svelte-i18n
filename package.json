@@ -6,10 +6,12 @@
   "type": "module",
   "license": "MIT",
   "author": "jill64 <intents.turrets0h@icloud.com> (https://github.com/jill64)",
-  "bugs": "https://github.com/jill64/@jill64/svelte-i18n/issues",
-  "homepage": "https://github.com/jill64/@jill64/svelte-i18n#readme",
+  "bugs": "https://github.com/jill64/svelte-i18n/issues",
+  "homepage": "https://github.com/jill64/svelte-i18n#readme",
   "files": [
-    "dist"
+    "dist",
+    "!*.test.*",
+    "!*.spec.*"
   ],
   "exports": {
     ".": {
@@ -20,16 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jill64/@jill64/svelte-i18n.git"
+    "url": "https://github.com/jill64/svelte-i18n.git"
   },
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
     "i18n",
-    "svelte",
-    "sveltekit",
-    "tool"
+    "svelte"
   ],
   "scripts": {
     "dev": "vite dev",
