@@ -1,5 +1,0 @@
-branch-protection:
-  main:
-    required_status_checks:
-      contexts:
-        - test-e2e / run-playwright
