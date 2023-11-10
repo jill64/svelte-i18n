@@ -80,9 +80,9 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
   const attach = (({ event, resolve }) =>
     resolve(event, {
       transformPageChunk: apply({
-        lang: getLocale(event.params),
-      }),
-    })) satisfies Handle;
+        lang: getLocale(event.params)
+      })
+    })) satisfies Handle
 
   return {
     locale,
