@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -61,6 +61,6 @@
     "vite": "4.5.0"
   },
   "dependencies": {
-    "@jill64/svelte-html": "0.3.0"
+    "@jill64/svelte-html": "1.0.0"
   }
 }
