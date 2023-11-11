@@ -61,6 +61,6 @@
     "vite": "4.5.0"
   },
   "dependencies": {
-    "@jill64/svelte-html": "0.3.0"
+    "@jill64/svelte-html": "1.0.0"
   }
 }
