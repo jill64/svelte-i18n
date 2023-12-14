@@ -26,14 +26,16 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/b5f92168e25579ca8103931b4674e70e21f650d36d8800a8f132e42e3156fd41/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/cd7f1c8be883f63a25484676c4ef6d538404aba9bcb31dd487422166aa8f014c/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
     "i18n",
-    "svelte"
+    "localization",
+    "svelte",
+    "sveltekit"
   ],
   "scripts": {
     "dev": "vite dev",
