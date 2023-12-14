@@ -8,13 +8,13 @@
 
 ## [Demo](https://stackblitz.com/edit/jill64-svelte-i18n?file=src%2Flib%2Fi18n.js)
 
+<!----- END GHOST DOCS HEADER ----->
+
 ## Install
 
 ```sh
 npm i @jill64/svelte-i18n
 ```
-
-<!----- END GHOST DOCS HEADER ----->
 
 ## Quick Example
 
