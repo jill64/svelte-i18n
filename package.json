@@ -5,7 +5,12 @@
   "main": "dist/index.js",
   "type": "module",
   "license": "MIT",
-  "author": "jill64 <intents.turrets0h@icloud.com> (https://github.com/jill64)",
+  "author": {
+    "name": "jill64",
+    "email": "143883742+jill64@users.noreply.github.com",
+    "url": "https://github.com/jill64",
+    "image": "https://avatars.githubusercontent.com/u/143883742?v=4"
+  },
   "bugs": "https://github.com/jill64/svelte-i18n/issues",
   "homepage": "https://github.com/jill64/svelte-i18n#readme",
   "files": [
@@ -20,7 +25,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jill64/svelte-i18n.git"
+    "url": "https://github.com/jill64/svelte-i18n.git",
+    "image": "https://opengraph.githubassets.com/b5f92168e25579ca8103931b4674e70e21f650d36d8800a8f132e42e3156fd41/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
