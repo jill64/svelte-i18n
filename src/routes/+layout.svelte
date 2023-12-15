@@ -11,7 +11,6 @@
 <LanguageManager />
 <LocaleAlternates />
 <Layout {packageJson} {README}>
-  
   <p>{$page.url.href}</p>
   <p>
     {$translate({
