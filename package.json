@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -49,7 +49,7 @@
     "test": "playwright test"
   },
   "peerDependencies": {
-    "@sveltejs/kit": "^1.0.0",
+    "@sveltejs/kit": "^2.0.0",
     "svelte": "^4.0.0"
   },
   "prettier": "@jill64/prettier-config",
@@ -60,12 +60,13 @@
     "@jill64/playwright-config": "2.2.0",
     "@playwright/test": "1.40.1",
     "@sveltejs/adapter-cloudflare": "3.0.0",
-    "@sveltejs/kit": "1.30.3",
+    "@sveltejs/kit": "2.0.0",
     "svelte": "4.2.8",
     "typescript": "5.3.3",
-    "vite": "5.0.9"
+    "vite": "5.0.9",
+    "@sveltejs/vite-plugin-svelte": "3.0.1"
   },
   "dependencies": {
-    "@jill64/svelte-html": "1.0.0"
+    "@jill64/svelte-html": "1.1.0"
   }
 }
