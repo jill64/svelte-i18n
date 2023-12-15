@@ -1,3 +1,3 @@
-import { extendsConfig, vitePreview } from '@jill64/playwright-config'
+import { branchPreview, extendsConfig } from '@jill64/playwright-config'
 
-export default extendsConfig(vitePreview)
+export default extendsConfig(branchPreview())

@@ -1,53 +1,87 @@
 <script lang="ts">
-  import { base } from '$app/paths'
   import { page } from '$app/stores'
   import { LanguageManager, LocaleAlternates } from '$lib'
-  import { translate } from '../i18n'
+  import { Layout } from '@jill64/npm-demo-layout'
+  import { TabItems } from 'svelte-page-tab'
+  import README from '../../README.md?raw'
+  import packageJson from '../../package.json'
+  import { altered, locale, translate } from '../i18n'
 </script>
 
 <LanguageManager />
 <LocaleAlternates />
-<a href={base}><h1>@jill64/svelte-i18n</h1></a>
-<main>
-  <span>{$page.url.pathname}</span>
-  <h2>
+<Layout {packageJson} {README}>
+  <p>{$page.url.href}</p>
+  <p>
     {$translate({
-      en: 'Current Language',
-      ja: '現在の言語'
-    })} : {$translate({
-      en: 'English',
-      ja: '日本語'
+      en: 'Current Language : English',
+      ja: '現在の言語 : 日本語'
     })}
-  </h2>
-  <slot />
-</main>
+    <code style:color="gray">($locale = {$locale})</code>
+  </p>
+  <ul class="language-tab">
+    <TabItems
+      routes={new Map([
+        ['/', 'Top'],
+        [
+          $page.route.id?.includes('[locale=locale]') ? $altered('en') : '/en',
+          'English'
+        ],
+        [
+          $page.route.id?.includes('[locale=locale]') ? $altered('ja') : '/ja',
+          '日本語'
+        ]
+      ])}
+    />
+  </ul>
+  <main>
+    <slot />
+  </main>
+</Layout>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+  :global(code) {
+    font-size: large;
   }
-
-  :global(body) {
+  p {
+    font-size: large;
+  }
+  :global(ul) {
+    list-style: none;
     margin: 0;
-    font-family: sans-serif;
+    padding: 0;
+    display: flex;
+    align-items: center;
   }
-
-  @media (prefers-color-scheme: dark) {
-    :global(body) {
-      background-color: #222;
-      color: #eee;
-    }
+  :global(ul li) {
+    margin: 0;
+    padding: 0;
+    display: contents;
   }
-
-  a {
-    color: inherit;
+  :global(ul a) {
+    color: gray;
     text-decoration: none;
+    padding: 1rem;
+    margin-bottom: 1px;
+    border-bottom: 1px solid gray;
   }
-
-  a:hover {
-    text-decoration: underline;
+  :global(ul a[data-current-location]) {
+    color: inherit;
+  }
+  :global(ul a[data-current-location]) {
+    margin-bottom: none;
+    border-bottom: 2px solid rebeccapurple;
+  }
+  :global(ul li a):hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  :global(ul li a):active {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  :global(.dark ul li a):hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  :global(.dark ul li a):active {
+    background: rgba(255, 255, 255, 0.2);
   }
 </style>
