@@ -5,7 +5,11 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 const config = {
   preprocess: vitePreprocess(),
   kit: {
-    adapter: adapter()
+    adapter: adapter(),
+    alias: {
+      '@jill64/svelte-i18n': './src/lib/index.js',
+      'i18n.js': './src/i18n.js'
+    }
   }
 }
 
