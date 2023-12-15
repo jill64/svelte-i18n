@@ -1,4 +1,5 @@
-import { init } from '$lib'
+// i18n.js
+import { init } from '@jill64/svelte-i18n'
 
 export const { match, altered, locale, translate, attach } = init({
   locales: ['en', 'ja'],
