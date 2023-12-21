@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -63,7 +63,7 @@
     "@jill64/universal-sanitizer": "1.0.0",
     "@playwright/test": "1.40.1",
     "@sveltejs/adapter-cloudflare": "3.0.1",
-    "@sveltejs/kit": "2.0.4",
+    "@sveltejs/kit": "2.0.5",
     "svelte": "4.2.8",
     "svelte-page-tab": "1.0.2",
     "typescript": "5.3.3",
