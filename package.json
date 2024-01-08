@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -56,7 +56,7 @@
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
     "@jill64/eslint-config-svelte": "1.0.12",
-    "@jill64/npm-demo-layout": "1.0.30",
+    "@jill64/npm-demo-layout": "1.0.31",
     "@jill64/playwright-config": "2.2.1",
     "@jill64/prettier-config": "1.0.0",
     "@jill64/sentry-sveltekit-cloudflare": "1.7.1",
