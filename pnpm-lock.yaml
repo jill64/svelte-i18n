@@ -26,8 +26,8 @@ devDependencies:
     specifier: 1.7.2
     version: 1.7.2(@sveltejs/kit@2.4.1)(svelte@4.2.9)
   '@jill64/universal-sanitizer':
-    specifier: 1.0.2
-    version: 1.0.2
+    specifier: 1.1.0
+    version: 1.1.0
   '@playwright/test':
     specifier: 1.41.1
     version: 1.41.1
@@ -507,6 +507,16 @@ packages:
       '@types/dompurify': 3.0.5
       '@types/sanitize-html': 2.9.5
       dompurify: 3.0.8
+      sanitize-html: 2.11.0
+    dev: true
+
+  /@jill64/universal-sanitizer@1.1.0:
+    resolution: {integrity: sha512-b5dBYYFgf8AClsfmwB5/txpyN3wfmLDZ9Sm1GBZdsvIphuxuQ3skofPSuGc7tGgwz1BeioBz/uXgZqdP8wk8Yw==}
+    dependencies:
+      '@types/dompurify': 3.0.5
+      '@types/sanitize-html': 2.9.5
+      dompurify: 3.0.8
+      postcss: 8.4.33
       sanitize-html: 2.11.0
     dev: true
 
@@ -1998,6 +2008,15 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  /postcss@8.4.33:
+    resolution: {integrity: sha512-Kkpbhhdjw2qQs2O2DGX+8m5OVqEcbB9HRBvuYM9pgrjEFUg30A9LmXNlTAUj4S9kgtGyrMbTzVjH7E+s5Re2yg==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: true
+
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -2074,7 +2093,7 @@ packages:
       htmlparser2: 8.0.2
       is-plain-object: 5.0.0
       parse-srcset: 1.0.2
-      postcss: 8.4.32
+      postcss: 8.4.33
     dev: true
 
   /semver@7.5.4:
