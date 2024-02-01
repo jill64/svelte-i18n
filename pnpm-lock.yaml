@@ -44,8 +44,8 @@ devDependencies:
     specifier: 4.2.9
     version: 4.2.9
   svelte-page-tab:
-    specifier: 1.0.5
-    version: 1.0.5(@sveltejs/kit@2.5.0)(svelte@4.2.9)
+    specifier: 1.0.6
+    version: 1.0.6(@sveltejs/kit@2.5.0)(svelte@4.2.9)
   typescript:
     specifier: 5.3.3
     version: 5.3.3
@@ -2249,8 +2249,8 @@ packages:
       svelte: 4.2.9
     dev: true
 
-  /svelte-page-tab@1.0.5(@sveltejs/kit@2.5.0)(svelte@4.2.9):
-    resolution: {integrity: sha512-CUzHtY1SO9h/cE4wrgTkBRdFH7tAsJrnSQqfgT3idnTO8XJ/Ixa/wPx/6D6/CELebgGvLulNuWSesUVxLOKIWQ==}
+  /svelte-page-tab@1.0.6(@sveltejs/kit@2.5.0)(svelte@4.2.9):
+    resolution: {integrity: sha512-xXPVzYWJMikzzrQ6DKDJSs+4k3cI65y5dYr4xI3d3Sa2L6BTEA+PzuUj36KiATXAhDz+PVgis4ZdJs2DR5xvlA==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
       svelte: ^4.0.0
