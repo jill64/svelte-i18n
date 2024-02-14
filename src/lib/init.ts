@@ -34,12 +34,14 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     ({ route: { id: route_id }, url }) => {
       const replaceIndex = route_id
         ? route_id.split('/').indexOf(slug) + baseDepth
-        : null
+        : -1
+
+      console.log('replaceIndex', replaceIndex)
 
       const pathArray = url.pathname.split('/')
 
       return (locale?: string) => {
-        if (!replaceIndex) {
+        if (replaceIndex === -1) {
           return ''
         }
 
