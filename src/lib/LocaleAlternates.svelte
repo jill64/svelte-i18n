@@ -4,15 +4,18 @@
   export let xDefaultHref: string | undefined = undefined
 
   $: ({ locale, locales, altered, defaultLocale } = $store)
+
+  $: href = xDefaultHref || $altered(defaultLocale)
 </script>
 
 <svelte:head>
   {#each locales.filter((x) => x !== $locale) as lang}
-    <link rel="alternate" hreflang={lang} href={$altered(lang)} />
+    {@const href = $altered(lang)}
+    {#if href}
+      <link rel="alternate" hreflang={lang} {href} />
+    {/if}
   {/each}
-  <link
-    rel="alternate"
-    hreflang="x-default"
-    href={xDefaultHref ?? $altered(defaultLocale)}
-  />
+  {#if href}
+    <link rel="alternate" hreflang="x-default" {href} />
+  {/if}
 </svelte:head>
