@@ -184,3 +184,20 @@ For example, if you are in `/[locale(en)]/foo/bar`, create the following tag in 
   href="default-language-href(optional)"
 />
 ```
+
+## RTL
+
+If RTL is required, a Svelte component can be created as follows
+
+```svelte
+<script>
+  import { translate, locale } from '$lib/i18n'
+</script>
+
+<p dir={$locale === 'ar' ? 'rtl' : 'ltr'}>
+  {$translate({
+    en: 'English',
+    ar: 'عربي'
+  })}
+</p>
+```
