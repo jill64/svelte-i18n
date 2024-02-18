@@ -33,7 +33,10 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     page,
     ({ route: { id: route_id }, url }) => {
       const replaceIndex = route_id
-        ? route_id.split('/').indexOf(slug) + baseDepth
+        ? route_id
+            .split('/')
+            .filter((x) => !x.includes('('))
+            .indexOf(slug) + baseDepth
         : -1
 
       console.log('replaceIndex', replaceIndex)
