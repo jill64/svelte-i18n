@@ -1,8 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores'
   import { LanguageManager, LocaleAlternates } from '$lib'
-  import { TabItems } from 'svelte-page-tab'
-  import { altered, locale, translate } from '../../i18n'
+  import { locale, translate } from '../../i18n'
 </script>
 
 <LanguageManager />
