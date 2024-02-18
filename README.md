@@ -59,10 +59,10 @@ Each time a locale change is detected on the client side, it is reflected in the
 ```svelte
 <!-- src/routes/+layouts.svelte -->
 <script>
-  import { LanguageBinder } from '@jill64/svelte-i18n'
+  import { LanguageManager } from '@jill64/svelte-i18n'
 </script>
 
-<LanguageBinder />
+<LanguageManager />
 ```
 
 ↓
@@ -200,4 +200,43 @@ If RTL is required, a Svelte component can be created as follows
     ar: 'عربي'
   })}
 </p>
+```
+
+## Web App Mode
+
+Web applications may not want to include language as a parameter to keep URLs clean.
+In app mode, language settings are stored using cookies and localStorage.
+
+```js:src/lib/i18n.js
+// src/lib/i18n.js
+import { init } from '@jill64/svelte-i18n/app'
+
+const { locale, translate, attach, setting } = init({
+  locales: ['en', 'ja'],
+  defaultLocale: 'en'
+})
+```
+
+The following features are not available in this mode
+
+- route based language switching
+- route matcher
+- `match`
+- `altered`
+- `LocaleAlternates`
+
+## Set Locale
+
+In app mode, language settings can be changed by setting values in the `$setting` store.
+
+```svelte
+<script>
+  import { setting } from '$lib/i18n'
+
+  const changeToJP = () => {
+    $setting = 'ja'
+  }
+</script>
+
+<button on:click={changeToJP}> Change to Japanese </button>
 ```

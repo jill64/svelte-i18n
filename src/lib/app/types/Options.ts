@@ -1,11 +1,5 @@
 export type Options<Locale extends string> = {
   /**
-   * The slug to be used to change the locale.
-   * @example '[locale]'
-   */
-  slug: `[${string}]` | `[${string}=${string}]`
-
-  /**
    * An array of locales.
    * @example ['en', 'es', 'fr']
    */
@@ -14,6 +8,13 @@ export type Options<Locale extends string> = {
   /**
    * The default locale.
    * @example 'en'
+   * @default locales[0]
    */
   defaultLocale?: Locale
+
+  /**
+   * The cookie key.
+   * @default 'svelte-i18n'
+   */
+  cookieKey?: string
 }

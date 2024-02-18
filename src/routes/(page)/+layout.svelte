@@ -1,35 +1,28 @@
 <script lang="ts">
   import { page } from '$app/stores'
-  import { Layout } from '@jill64/npm-demo-layout'
-  import { TabItems } from 'svelte-page-tab'
-  import README from '../../README.md?raw'
-  import packageJson from '../../package.json'
-  import { altered } from '../i18n'
+  import { LanguageManager, LocaleAlternates } from '$lib'
+  import { locale, translate } from '../../i18n'
 </script>
 
-<Layout {packageJson} {README}>
-  <ul class="language-tab">
-    <TabItems
-      routes={new Map([
-        ['/', 'Top'],
-        [
-          $page.route.id?.includes('[locale=locale]') ? $altered('en') : '/en',
-          'English'
-        ],
-        [
-          $page.route.id?.includes('[locale=locale]') ? $altered('ja') : '/ja',
-          '日本語'
-        ],
-        ['/app', 'App Mode']
-      ])}
-    />
-  </ul>
-  <main>
-    <slot />
-  </main>
-</Layout>
+<LanguageManager />
+<LocaleAlternates />
+<p>{$page.url.href}</p>
+<p>
+  {$translate({
+    en: 'Current Language : English',
+    ja: '現在の言語 : 日本語'
+  })}
+  <code style:color="gray">($locale = {$locale})</code>
+</p>
+<slot />
 
 <style>
+  :global(code) {
+    font-size: large;
+  }
+  p {
+    font-size: large;
+  }
   :global(ul) {
     list-style: none;
     margin: 0;
