@@ -14,7 +14,7 @@ export const handle = onHandle(
       event: { route }
     } = arg
 
-    if (route.id === '/app') {
+    if (route.id === '/(app)/app') {
       return attachApp(arg)
     }
 
