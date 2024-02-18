@@ -211,7 +211,7 @@ In app mode, language settings are stored using cookies and localStorage.
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n/app'
 
-const { locale, translate, attach } = init({
+const { locale, translate, attach, setting } = init({
   locales: ['en', 'ja'],
   defaultLocale: 'en'
 })
