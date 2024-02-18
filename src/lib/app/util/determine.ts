@@ -1,17 +1,23 @@
 import acceptLanguage from 'accept-language'
 
-export const determine = (params: {
+export const determine = <Locale extends string>(params: {
   acceptLanguages: string | null
   navigators: readonly string[]
-  setting: string
-  locales: string[]
-  defaultLocale: string | undefined
-}): string => {
+  setting: Locale | 'sync'
+  locales: Locale[]
+  defaultLocale: Locale | undefined
+}): Locale => {
   const { acceptLanguages, navigators, locales, defaultLocale, setting } =
     params
 
+  const isLocale = (str: string): str is Locale =>
+    locales.includes(str as Locale)
+
+  const convert = (str: string): Locale =>
+    isLocale(str) ? str : defaultLocale ?? locales[0]
+
   if (setting !== 'sync') {
-    return setting
+    return convert(setting)
   }
 
   if (acceptLanguages) {
@@ -20,7 +26,7 @@ export const determine = (params: {
     const language = parser.get(acceptLanguages)
 
     if (language) {
-      return language
+      return convert(language)
     }
   }
 
@@ -30,7 +36,7 @@ export const determine = (params: {
     const language = parser.get(navigators.join(', '))
 
     if (language) {
-      return language
+      return convert(language)
     }
   }
 
