@@ -1,6 +1,6 @@
 <script lang="ts">
   import { TabItems } from 'svelte-page-tab'
-  import { locale, translate } from '../../i18n'
+  import { locale, translate } from '../../../i18n'
 </script>
 
 <ul>

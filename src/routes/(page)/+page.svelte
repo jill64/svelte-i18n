@@ -2,9 +2,9 @@
   import { Highlight, HighlightSvelte } from '@jill64/npm-demo-layout/highlight'
   import { javascript } from '@jill64/npm-demo-layout/highlight/languages'
   import { translate } from 'i18n.js'
-  import i18nSource from '../i18n.ts?raw'
-  import { code } from './code'
-  import { hooksServerSource } from './hooksServerSource'
+  import i18nSource from '../../i18n.ts?raw'
+  import { code } from '../code'
+  import { hooksServerSource } from '../hooksServerSource'
 </script>
 
 <div class="grid">
