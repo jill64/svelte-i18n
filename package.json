@@ -17,6 +17,11 @@
     "dist"
   ],
   "exports": {
+    "./app": {
+      "types": "./dist/app/index.d.ts",
+      "svelte": "./dist/app/index.js",
+      "default": "./dist/app/index.js"
+    },
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js",
@@ -64,13 +69,15 @@
     "@playwright/test": "1.41.2",
     "@sveltejs/adapter-cloudflare": "4.1.0",
     "@sveltejs/kit": "2.5.0",
+    "@sveltejs/vite-plugin-svelte": "3.0.2",
     "svelte": "4.2.11",
     "svelte-page-tab": "1.0.7",
     "typescript": "5.3.3",
-    "vite": "5.1.3",
-    "@sveltejs/vite-plugin-svelte": "3.0.2"
+    "vite": "5.1.3"
   },
   "dependencies": {
-    "@jill64/svelte-html": "1.1.7"
+    "@jill64/svelte-html": "1.1.7",
+    "@jill64/svelte-storage": "1.1.10",
+    "accept-language": "3.0.18"
   }
 }
