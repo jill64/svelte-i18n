@@ -76,7 +76,7 @@
     "vite": "5.1.6"
   },
   "dependencies": {
-    "@jill64/svelte-html": "1.1.9",
+    "@jill64/svelte-html": "1.1.10",
     "@jill64/svelte-storage": "1.1.13",
     "accept-language": "3.0.18",
     "svelte-baked-cookie": "1.0.16"
