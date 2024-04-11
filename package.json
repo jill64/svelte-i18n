@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "1.1.21",
+  "version": "1.1.22",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "@jill64/svelte-html": "1.1.12",
-    "@jill64/svelte-storage": "1.1.18",
+    "@jill64/svelte-storage": "1.1.19",
     "accept-language": "3.0.18",
     "svelte-baked-cookie": "1.0.21"
   }
