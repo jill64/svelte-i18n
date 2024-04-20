@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "1.1.24",
+  "version": "1.1.25",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/52a19fafffafa72e44d8734de70d26c279fbe57dc220e5e0b0b3768830336d7c/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/0e2346cda57a003d3683b233ce4f7b230fd29c812dffae4ce38f45bee7a6de1b/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
@@ -76,7 +76,7 @@
     "vite": "5.2.10"
   },
   "dependencies": {
-    "@jill64/svelte-html": "1.1.13",
+    "@jill64/svelte-html": "1.1.14",
     "@jill64/svelte-storage": "1.1.19",
     "accept-language": "3.0.18",
     "svelte-baked-cookie": "1.0.22"
