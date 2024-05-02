@@ -79,6 +79,6 @@
     "@jill64/svelte-html": "1.1.15",
     "@jill64/svelte-storage": "1.1.21",
     "accept-language": "3.0.18",
-    "svelte-baked-cookie": "1.0.23"
+    "svelte-baked-cookie": "1.0.24"
   }
 }
