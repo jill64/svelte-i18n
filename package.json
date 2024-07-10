@@ -65,7 +65,7 @@
     "@jill64/playwright-config": "2.4.0",
     "@jill64/prettier-config": "1.0.0",
     "@jill64/sentry-sveltekit-cloudflare": "1.7.15",
-    "@jill64/universal-sanitizer": "1.2.14",
+    "@jill64/universal-sanitizer": "1.3.0",
     "@playwright/test": "1.45.1",
     "@sveltejs/adapter-cloudflare": "4.6.1",
     "@sveltejs/kit": "2.5.18",
