@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "@jill64/svelte-html": "1.1.19",
-    "@jill64/svelte-storage": "1.2.0",
+    "@jill64/svelte-storage": "1.2.1",
     "accept-language": "3.0.18",
     "svelte-baked-cookie": "1.0.30"
   }
