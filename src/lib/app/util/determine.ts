@@ -14,7 +14,7 @@ export const determine = <Locale extends string>(params: {
     locales.includes(str as Locale)
 
   const convert = (str: string): Locale =>
-    isLocale(str) ? str : defaultLocale ?? locales[0]
+    isLocale(str) ? str : (defaultLocale ?? locales[0])
 
   if (setting !== 'sync') {
     return convert(setting)
