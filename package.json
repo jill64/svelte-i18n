@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/23828a91fb2f0e62bff0ffa7b27a1677f9a86ba9a012399c8483214f6cefb1d6/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/daf7f5339f885eae24044fde6868c95484b54e9c739fcb4c26334c0205c9e5a7/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
@@ -68,7 +68,7 @@
     "@jill64/universal-sanitizer": "1.3.2",
     "@playwright/test": "1.47.2",
     "@sveltejs/adapter-cloudflare": "4.7.2",
-    "@sveltejs/kit": "2.6.0",
+    "@sveltejs/kit": "2.6.1",
     "@sveltejs/vite-plugin-svelte": "3.1.2",
     "svelte": "4.2.19",
     "svelte-page-tab": "1.0.19",
