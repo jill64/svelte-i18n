@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/55a90a5f7e88699a7763263cedbaf3ae11e5a482b0125277749c551726b5fed3/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/3a84957836e9517d3933a39edbaa3f298e414ce212525873c9ef857d8eb99a7b/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
