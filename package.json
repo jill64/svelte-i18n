@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/96ecd1af7e7535f104e6a8cb0ff11e4217f911d37adc06a3eaeab612e14cae97/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/eb2ea53088e346a5e29a7dfb07a8fda988c319fedcd95b5512765d2e58cfc617/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
@@ -72,7 +72,7 @@
     "@sveltejs/vite-plugin-svelte": "3.1.2",
     "svelte": "4.2.19",
     "svelte-page-tab": "1.0.19",
-    "typescript": "5.6.3",
+    "typescript": "5.7.2",
     "vite": "5.4.8"
   },
   "dependencies": {
