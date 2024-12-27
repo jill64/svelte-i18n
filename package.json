@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/6244442595d9908a6081cb1dfbc2fa2ace0342bb1f63889d534fdec0b6a7c58f/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/ef0657380d1871e21e91643c1d9a1d526aa5df325ad94a4c124ed8a418dc76df/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
@@ -60,7 +60,7 @@
   },
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
-    "@jill64/eslint-config-svelte": "1.3.28",
+    "@jill64/eslint-config-svelte": "2.0.1",
     "@jill64/npm-demo-layout": "1.0.249",
     "@jill64/playwright-config": "2.4.2",
     "@jill64/prettier-config": "1.0.0",
