@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { translate } from '../../../i18n'
+  import { i } from '../../../i18n'
 </script>
 
 <h3>
-  {$translate({
+  {i.translate({
     en: 'Index Page',
     ja: 'インデックスページ'
   })}

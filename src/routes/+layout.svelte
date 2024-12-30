@@ -1,10 +1,12 @@
 <script lang="ts">
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
   import { Layout } from '@jill64/npm-demo-layout'
   import { TabItems } from 'svelte-page-tab'
   import README from '../../README.md?raw'
   import packageJson from '../../package.json'
-  import { altered } from '../i18n'
+  import { i } from '../i18n'
+
+  let { children } = $props()
 </script>
 
 <Layout {packageJson} {README}>
@@ -13,11 +15,11 @@
       routes={new Map([
         ['/', 'Top'],
         [
-          $page.route.id?.includes('[locale=locale]') ? $altered('en') : '/en',
+          page.route.id?.includes('[locale=locale]') ? i.altered('en') : '/en',
           'English'
         ],
         [
-          $page.route.id?.includes('[locale=locale]') ? $altered('ja') : '/ja',
+          page.route.id?.includes('[locale=locale]') ? i.altered('ja') : '/ja',
           '日本語'
         ],
         ['/app', 'App Mode']
@@ -25,7 +27,7 @@
     />
   </ul>
   <main>
-    <slot />
+    {@render children()}
   </main>
 </Layout>
 

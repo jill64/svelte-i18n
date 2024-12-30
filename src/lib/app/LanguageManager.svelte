@@ -1,6 +1,6 @@
 <script lang="ts">
   import { SvelteHTML } from '@jill64/svelte-html'
-  import { locale } from './store/locale'
+  import { store } from './store.svelte'
 </script>
 
-<SvelteHTML lang={$locale} />
+<SvelteHTML lang={store.locale} />

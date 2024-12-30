@@ -1,16 +1,14 @@
 <script lang="ts">
-  import { store } from './store'
+  import { store } from './store.svelte'
 
-  export let xDefaultHref: string | undefined = undefined
+  let { xDefaultHref = undefined }: { xDefaultHref?: string } = $props()
 
-  $: ({ locale, locales, altered, defaultLocale } = $store)
-
-  $: href = xDefaultHref || $altered(defaultLocale)
+  let href = $derived(xDefaultHref || store.altered(store.defaultLocale))
 </script>
 
 <svelte:head>
-  {#each locales.filter((x) => x !== $locale) as lang}
-    {@const href = $altered(lang)}
+  {#each store.locales.filter((x) => x !== store.locale) as lang}
+    {@const href = store.altered(lang)}
     {#if href}
       <link rel="alternate" hreflang={lang} {href} />
     {/if}

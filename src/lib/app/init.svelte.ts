@@ -4,12 +4,9 @@ import { storage } from '@jill64/svelte-storage'
 import { enums } from '@jill64/svelte-storage/serde'
 import type { Handle } from '@sveltejs/kit'
 import { bakery } from 'svelte-baked-cookie'
-import { derived, writable } from 'svelte/store'
-import { acceptLanguages } from './store/acceptLanguages'
-import { navigators } from './store/navigators'
+import { store } from './store.svelte.js'
 import type { Options } from './types/Options.js'
 import { determine } from './util/determine'
-import { locale as localeStore } from './store/locale'
 
 export const init = <Locale extends string>(options: Options<Locale>) => {
   const {
@@ -20,48 +17,33 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
 
   const settingSerde = enums<Locale | 'sync'>(locales, defaultLocale)
 
-  const local = storage('svelte-i18n', settingSerde)
+  let localStorage = storage({ 'svelte-i18n': settingSerde })
 
-  const cookieBakery = (key = 'svelte-dark-theme') =>
+  const cookieBakery = (key = 'svelte-i18n') =>
     bakery({
       [key]: settingSerde
     })
 
-  const { subscribe, set } = writable<Locale | 'sync'>('sync')
+  let localSetting = $state<Locale | 'sync'>(localStorage['svelte-i18n'])
 
-  local.subscribe(set)
-
-  const setting = {
-    subscribe,
-    set: (value: Locale | 'sync') => {
-      local.set(value)
-      set(value)
-      if (browser) {
-        cookieBakery(cookieKey).rebake()[cookieKey].set(value)
-      }
-    }
-  }
-
-  const locale = derived(
-    [acceptLanguages, setting, navigators],
-    ([$acceptLanguages, $setting, $navigators]) =>
-      determine({
-        acceptLanguages: $acceptLanguages,
-        navigators: $navigators,
-        setting: $setting,
-        locales,
-        defaultLocale
-      })
+  let locale = $derived(
+    determine({
+      acceptLanguages: store.acceptLanguages,
+      navigators: store.navigators,
+      setting: localSetting,
+      locales,
+      defaultLocale
+    })
   )
 
-  locale.subscribe(localeStore.set)
+  store.locale = localSetting
 
   const pick =
     (locale: Locale) =>
     <T>(dictionary: Record<Locale, T>) =>
       dictionary[locale]
 
-  const translate = derived(locale, pick)
+  let translate = $derived(pick(locale))
 
   const attach: Handle = ({ event, resolve }) => {
     const { request, cookies } = event
@@ -73,13 +55,13 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     }
 
     const { bakedCookies } = cookieBakery(cookieKey).bake(cookies)
-    const settingVal = bakedCookies[cookieKey].get()
+    const settingVal = bakedCookies[cookieKey]
 
     const languages = request.headers.get('Accept-Language')
 
-    setting.set(settingVal)
+    localSetting = settingVal
 
-    acceptLanguages.set(languages)
+    store.acceptLanguages = languages
 
     const lang = determine({
       acceptLanguages: languages,
@@ -97,9 +79,31 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
   }
 
   return {
-    locale,
-    translate,
-    attach,
-    setting
+    get locale() {
+      return locale
+    },
+    get translate() {
+      return translate
+    },
+    get attach() {
+      return attach
+    },
+    get setting() {
+      return localSetting
+    },
+    set setting(value) {
+      localStorage['svelte-i18n'] = value
+      localSetting = value
+      store.locale = determine({
+        acceptLanguages: store.acceptLanguages,
+        navigators: store.navigators,
+        setting: value,
+        locales,
+        defaultLocale
+      })
+      if (browser) {
+        cookieBakery(cookieKey).rebake()[cookieKey] = value
+      }
+    }
   }
 }

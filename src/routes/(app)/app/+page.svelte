@@ -1,23 +1,23 @@
 <script lang="ts">
-  import { locale, setting, translate } from '../../../i18nApp'
+  import { i } from '../../../i18nApp'
 
   const changeToJP = () => {
-    $setting = 'ja'
+    i.setting = 'ja'
   }
 
   const changeToEN = () => {
-    $setting = 'en'
+    i.setting = 'en'
   }
 </script>
 
-<p>$locale = {$locale}</p>
+<p>i.locale = {i.locale}</p>
 <p>
-  {$translate({
+  {i.translate({
     en: 'Hello World',
     ja: 'こんにちは、世界'
   })}
 </p>
 <div>
-  <button on:click={changeToEN}> Change to English </button>
-  <button on:click={changeToJP}> Change to Japanese </button>
+  <button onclick={changeToEN}> Change to English </button>
+  <button onclick={changeToJP}> Change to Japanese </button>
 </div>
