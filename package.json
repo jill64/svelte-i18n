@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "1.1.54",
+  "version": "1.1.55",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/cf525553fee0985a82bc277314592c04701e7788af79c8fe748ff62da4396a51/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/ac4c8836cb2ac0699c013bd90e6d215fb0a9094c2425d7b95d38821c8a6b8586/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
@@ -51,12 +51,12 @@
     "package": "svelte-kit sync && npx @sveltejs/package && npx publint",
     "check": "svelte-kit sync && npx svelte-check",
     "lint": "npm run check && npx eslint .",
-    "format": "npx @jill64/psx",
+    "format": "npx psvx",
     "test": "playwright test"
   },
   "peerDependencies": {
     "@sveltejs/kit": "^2.0.0",
-    "svelte": "^4.0.0"
+    "svelte": "^5.0.0"
   },
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
@@ -68,15 +68,15 @@
     "@jill64/universal-sanitizer": "1.3.6",
     "@playwright/test": "1.49.1",
     "@sveltejs/adapter-cloudflare": "5.0.0",
-    "@sveltejs/kit": "2.8.3",
-    "@sveltejs/vite-plugin-svelte": "3.1.2",
-    "svelte": "4.2.19",
-    "svelte-page-tab": "1.0.19",
+    "@sveltejs/kit": "2.15.1",
+    "@sveltejs/vite-plugin-svelte": "5.0.3",
+    "svelte": "5.16.0",
+    "svelte-page-tab": "2.0.4",
     "typescript": "5.7.2",
-    "vite": "5.4.8"
+    "vite": "6.0.6"
   },
   "dependencies": {
-    "@jill64/svelte-html": "1.1.20",
+    "@jill64/svelte-html": "2.0.0",
     "@jill64/svelte-storage": "1.2.2",
     "accept-language": "3.0.20",
     "svelte-baked-cookie": "1.1.2"
