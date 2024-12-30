@@ -215,7 +215,8 @@ In app mode, language settings are stored using cookies and localStorage.
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n/app'
 
-const { locale, translate, attach, setting } = init({
+// { locale, translate, attach, setting }
+const i = init({
   locales: ['en', 'ja'],
   defaultLocale: 'en'
 })
@@ -231,18 +232,22 @@ The following features are not available in this mode
 
 ## Set Locale
 
-In app mode, language settings can be changed by setting values in the `$setting` store.
+In app mode, language settings can be changed by setting values in the `i.setting` store.
 
 ```svelte
 <script>
-  import { setting } from '$lib/i18n'
+  import { i } from '$lib/i18n'
 
   const changeToJP = () => {
-    $setting = 'ja'
+    i.setting = 'ja'
+  }
+  const changeToEN = () => {
+    i.setting = 'en'
   }
 </script>
 
-<button on:click={changeToJP}> Change to Japanese </button>
+<button onclick={changeToJP}> Change to Japanese </button>
+<button onclick={changeToEN}> Change to English </button>
 ```
 
 <!----- BEGIN GHOST DOCS FOOTER ----->
