@@ -94,6 +94,13 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     set setting(value) {
       localStorage['svelte-i18n'] = value
       localSetting = value
+      store.locale = determine({
+        acceptLanguages: store.acceptLanguages,
+        navigators: store.navigators,
+        setting: value,
+        locales,
+        defaultLocale
+      })
       if (browser) {
         cookieBakery(cookieKey).rebake()[cookieKey] = value
       }
