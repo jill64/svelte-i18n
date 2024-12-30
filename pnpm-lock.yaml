@@ -18,8 +18,8 @@ importers:
         specifier: 3.0.20
         version: 3.0.20
       svelte-baked-cookie:
-        specifier: 1.1.2
-        version: 1.1.2(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0)
+        specifier: 1.1.4
+        version: 1.1.4(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0)
     devDependencies:
       '@jill64/eslint-config-svelte':
         specifier: 2.0.1
@@ -1598,8 +1598,8 @@ packages:
       '@sveltejs/kit': ^2.0.0
       svelte: ^4.0.0
 
-  svelte-baked-cookie@1.1.2:
-    resolution: {integrity: sha512-ypwWXYkvwAQECtz4ijoQBItdCptKSePNKQYfFALWH60mS3lDqHC268+FQLScHu2I9YV/MYrHnlzxO9XiDRqfwA==}
+  svelte-baked-cookie@1.1.4:
+    resolution: {integrity: sha512-K/cdg+tPFf+lkBb9TDla0ImiWV6obGo9QvsGssK5tT0NMLzhmLMRnkJaiyiO+I4VXKBllp65e/lvnA2T5CgokQ==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
       svelte: ^4.0.0 || ^5.0.0
@@ -3286,7 +3286,7 @@ snapshots:
       svelte: 5.16.0
       ts-serde: 1.0.7
 
-  svelte-baked-cookie@1.1.2(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0):
+  svelte-baked-cookie@1.1.4(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0):
     dependencies:
       '@jill64/transform': 1.0.4
       '@sveltejs/kit': 2.15.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5)))(svelte@5.16.0)(vite@6.0.6(@types/node@22.5.5))
