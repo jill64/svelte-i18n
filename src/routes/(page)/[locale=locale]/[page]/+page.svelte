@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { page } from '$app/stores'
-  import { translate } from '../../../../i18n'
+  import { page } from '$app/state'
+  import { i } from '../../../../i18n'
 </script>
 
 <h3>
-  {$translate({ en: 'Page', ja: 'ページ' })}-{$page.params.page}
+  {i.translate({ en: 'Page', ja: 'ページ' })}-{page.params.page}
 </h3>

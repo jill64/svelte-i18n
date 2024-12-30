@@ -1,18 +1,18 @@
 <script lang="ts">
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
   import { LanguageManager, LocaleAlternates } from '$lib'
-  import { locale, translate } from '../../i18n'
+  import { i } from '../../i18n'
 </script>
 
 <LanguageManager />
 <LocaleAlternates />
-<p>{$page.url.href}</p>
+<p>{page.url.href}</p>
 <p>
-  {$translate({
+  {i.translate({
     en: 'Current Language : English',
     ja: '現在の言語 : 日本語'
   })}
-  <code style:color="gray">($locale = {$locale})</code>
+  <code style:color="gray">($locale = {i.locale})</code>
 </p>
 <slot />
 

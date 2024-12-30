@@ -28,7 +28,7 @@ Use a function to translate from the specified locales based on the current rout
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
-const { locale, translate } = init({
+export const i = init({
   locales: ['en', 'ja'],
   slug: '[locale]',
   defaultLocale: 'en'
@@ -38,18 +38,18 @@ const { locale, translate } = init({
 ```svelte
 <!-- src/routes/[locale]/+page.svelte -->
 <script>
-  import { translate, locale } from '$lib/i18n'
+  import { i } from '$lib/i18n'
 
   // src/routes/en => 'en'
   // src/routes/ja => 'ja'
   // src/routes/invalid-param => 'en' (defaultLocale)
-  $: console.log($locale)
+  console.log(i.locale)
 </script>
 
 <h1>
   <!-- src/routes/en => English -->
   <!-- src/routes/ja => 日本語 -->
-  {$translate({
+  {i.translate({
     en: 'English',
     ja: '日本語'
   })}
@@ -86,7 +86,7 @@ SSR uses the `attach` handler to add the lang attribute to html tags.
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
-const { attach } = init({
+const { i } = init({
   locales: ['en', 'ja'],
   defaultLocale: 'en'
 })
@@ -94,17 +94,18 @@ const { attach } = init({
 
 ```js:src/hooks.server.js
 // src/hooks.server.js
-import { attach as handle } from '$lib/i18n'
+import { i as handle } from '$lib/i18n'
+export const handle = i.attach
 ```
 
 To use with any handle hook, use the `sequence` function.
 
 ```js:src/hooks.server.js
 // src/hooks.server.js
-import { attach } from '$lib/i18n'
+import { i } from '$lib/i18n'
 import { sequence } from '@sveltejs/kit/hooks'
 
-export const handle = sequence(attach, () => {
+export const handle = sequence(i.attach, () => {
   // ... Your Handler Function
 })
 ```
@@ -117,7 +118,7 @@ Use param matcher to add type checking for route parameters.
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
-const { match } = init({
+const i = init({
   locales: ['en', 'ja'],
   slug: '[locale=locale]',
   defaultLocale: 'en'
@@ -126,7 +127,8 @@ const { match } = init({
 
 ```js:src/params/locale.js
 // src/params/locale.js
-export { match } from '$lib/i18n'
+import { i } from '$lib/i18n'
+export const match = i.match
 ```
 
 ## Switch Language
@@ -137,7 +139,7 @@ Quickly create links to different language versions of the current page.
 // src/lib/i18n.js
 import { init } from '@jill64/svelte-i18n'
 
-const { altered } = init({
+const i = init({
   locales: ['en', 'ja'],
   defaultLocale: 'en'
 })
@@ -146,11 +148,11 @@ const { altered } = init({
 ```svelte
 <!-- src/routes/[locale](en)/foo/bar/+page.svelte -->
 <script>
-  import { altered } from '$lib/i18n'
+  import { i } from '$lib/i18n'
 </script>
 
 <!-- href="/ja/foo/bar" -->
-<a href={$altered('ja')}> Jump to Japanese Version </a>
+<a href={i.altered('ja')}> Jump to Japanese Version </a>
 ```
 
 ## Locale Alternates
@@ -195,11 +197,11 @@ If RTL is required, a Svelte component can be created as follows
 
 ```svelte
 <script>
-  import { translate, locale } from '$lib/i18n'
+  import { i } from '$lib/i18n'
 </script>
 
-<p dir={$locale === 'ar' ? 'rtl' : 'ltr'}>
-  {$translate({
+<p dir={i.locale === 'ar' ? 'rtl' : 'ltr'}>
+  {i.translate({
     en: 'English',
     ar: 'عربي'
   })}
@@ -216,7 +218,7 @@ In app mode, language settings are stored using cookies and localStorage.
 import { init } from '@jill64/svelte-i18n/app'
 
 // { locale, translate, attach, setting }
-const i = init({
+export const i = init({
   locales: ['en', 'ja'],
   defaultLocale: 'en'
 })

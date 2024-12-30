@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Highlight, HighlightSvelte } from '@jill64/npm-demo-layout/highlight'
   import { javascript } from '@jill64/npm-demo-layout/highlight/languages'
-  import { translate } from 'i18n.js'
+  import { i } from 'i18n.js'
   import i18nSource from '../../i18n.ts?raw'
   import { code } from '../code'
   import { hooksServerSource } from '../hooksServerSource'
@@ -10,7 +10,7 @@
 <div class="grid">
   <div style:overflow-x="auto">
     <h2>
-      {$translate({
+      {i.translate({
         en: 'Top Page',
         ja: 'トップページ'
       })}
