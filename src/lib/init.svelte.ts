@@ -88,7 +88,6 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
         return next.href
       }
 
-      store.altered = altered
       return altered
     },
     get match() {
