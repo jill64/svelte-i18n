@@ -74,7 +74,7 @@
     "svelte": "5.16.0",
     "svelte-page-tab": "2.0.4",
     "typescript": "5.7.2",
-    "vite": "6.0.6"
+    "vite": "6.0.7"
   },
   "dependencies": {
     "@jill64/svelte-html": "2.0.0",
