@@ -77,6 +77,23 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     })
   }
 
+  if (browser) {
+    store.navigators = navigator.languages
+    addEventListener('languagechange', () => {
+      store.navigators = navigator.languages
+      if (localSetting === 'sync') {
+        store.locale = determine({
+          acceptLanguages: store.acceptLanguages,
+          navigators: store.navigators,
+          setting: localSetting,
+          locales,
+          defaultLocale
+        })
+        store.translate = pick(store.locale as Locale)
+      }
+    })
+  }
+
   return {
     get locale() {
       return store.locale
