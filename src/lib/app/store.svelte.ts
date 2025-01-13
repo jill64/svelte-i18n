@@ -3,6 +3,7 @@ import { browser } from '$app/environment'
 let acceptLanguages = $state<string | null>(null)
 let locale = $state<string | undefined>(undefined)
 let navigators = $state<readonly string[]>([])
+let translate = $state<(_: Record<string, string>) => string>(({}) => '')
 
 if (browser) {
   navigators = navigator.languages
@@ -26,5 +27,11 @@ export const store = {
   },
   get navigators() {
     return navigators
+  },
+  set translate(value) {
+    translate = value
+  },
+  get translate() {
+    return translate
   }
 }

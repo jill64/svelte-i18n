@@ -15,7 +15,7 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     cookieKey = 'svelte-i18n'
   } = options
 
-  const settingSerde = enums<Locale | 'sync'>(locales, defaultLocale)
+  const settingSerde = enums<Locale | 'sync'>(locales, 'sync')
 
   let localStorage = storage({ 'svelte-i18n': settingSerde })
 
@@ -26,24 +26,20 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
 
   let localSetting = $state<Locale | 'sync'>(localStorage['svelte-i18n'])
 
-  let locale = $derived(
-    determine({
-      acceptLanguages: store.acceptLanguages,
-      navigators: store.navigators,
-      setting: localSetting,
-      locales,
-      defaultLocale
-    })
-  )
-
-  store.locale = localSetting
+  store.locale = determine({
+    acceptLanguages: store.acceptLanguages,
+    navigators: store.navigators,
+    setting: localSetting,
+    locales,
+    defaultLocale
+  })
 
   const pick =
     (locale: Locale) =>
     <T>(dictionary: Record<Locale, T>) =>
       dictionary[locale]
 
-  let translate = $derived(pick(locale))
+  store.translate = pick(store.locale as Locale)
 
   const attach: Handle = ({ event, resolve }) => {
     const { request, cookies } = event
@@ -71,6 +67,9 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
       defaultLocale
     })
 
+    store.locale = lang
+    store.translate = pick(store.locale as Locale)
+
     return resolve(event, {
       transformPageChunk: apply({
         lang
@@ -80,10 +79,10 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
 
   return {
     get locale() {
-      return locale
+      return store.locale
     },
     get translate() {
-      return translate
+      return store.translate
     },
     get attach() {
       return attach
@@ -101,6 +100,7 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
         locales,
         defaultLocale
       })
+      store.translate = pick(store.locale as Locale)
       if (browser) {
         cookieBakery(cookieKey).rebake()[cookieKey] = value
       }
