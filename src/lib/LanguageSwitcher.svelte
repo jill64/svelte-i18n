@@ -29,7 +29,10 @@
   } = $props()
 </script>
 
-<Menu Class="relative">
+<Menu
+  style="position:relative; display: inline-flex;"
+  summaryStyle="display: inline-flex;"
+>
   {#snippet button()}
     <button {style} class={Class}>
       <TranslateIcon {width} {strokeWidth} {stroke} class={iconClass} />
