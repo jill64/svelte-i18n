@@ -15,6 +15,8 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     cookieKey = 'svelte-i18n'
   } = options
 
+  store.locales = locales
+
   const settingSerde = enums<Locale | 'sync'>(locales, 'sync')
 
   let localStorage = storage({ 'svelte-i18n': settingSerde })
@@ -94,6 +96,24 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
     })
   }
 
+  const setting = (value: Locale | 'sync') => {
+    localStorage['svelte-i18n'] = value
+    localSetting = value
+    store.locale = determine({
+      acceptLanguages: store.acceptLanguages,
+      navigators: store.navigators,
+      setting: value,
+      locales,
+      defaultLocale
+    })
+    store.translate = pick(store.locale as Locale)
+    if (browser) {
+      cookieBakery(cookieKey).rebake()[cookieKey] = value
+    }
+  }
+
+  store.setting = setting as (locale: string) => unknown
+
   return {
     get locale() {
       return store.locale
@@ -108,19 +128,7 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
       return localSetting
     },
     set setting(value) {
-      localStorage['svelte-i18n'] = value
-      localSetting = value
-      store.locale = determine({
-        acceptLanguages: store.acceptLanguages,
-        navigators: store.navigators,
-        setting: value,
-        locales,
-        defaultLocale
-      })
-      store.translate = pick(store.locale as Locale)
-      if (browser) {
-        cookieBakery(cookieKey).rebake()[cookieKey] = value
-      }
+      setting(value)
     }
   }
 }
