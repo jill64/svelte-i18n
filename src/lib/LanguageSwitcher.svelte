@@ -15,6 +15,10 @@
     menuClass = '',
     liClass = '',
     aClass = '',
+    iconStyle = '',
+    menuStyle = '',
+    liStyle = '',
+    aStyle = '',
     children
   }: {
     style?: string
@@ -26,6 +30,10 @@
     menuClass?: string
     liClass?: string
     aClass?: string
+    iconStyle?: string
+    menuStyle?: string
+    liStyle?: string
+    aStyle?: string
     children?: Snippet<[string]>
   } = $props()
 </script>
@@ -36,14 +44,14 @@
 >
   {#snippet button()}
     <button {style} class={Class}>
-      <TranslateIcon {width} {strokeWidth} {stroke} class={iconClass} />
+      <TranslateIcon {width} {strokeWidth} {stroke} class={iconClass} style={iconStyle} />
     </button>
   {/snippet}
   {#snippet contents()}
-    <ul class={menuClass} transition:slide>
+    <ul class={menuClass} style={menuStyle} transition:slide>
       {#each store.locales as locale}
-        <li class={liClass}>
-          <a class={aClass} href={store.altered(locale)}>
+        <li class={liClass} style={liStyle}>
+          <a class={aClass} href={store.altered(locale)} style={aStyle}>
             {#snippet fallback(label: string)}
               {label}
             {/snippet}

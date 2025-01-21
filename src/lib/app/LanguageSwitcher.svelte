@@ -14,6 +14,9 @@
     iconClass = '',
     menuClass = '',
     liClass = '',
+    iconStyle = '',
+    menuStyle = '',
+    liStyle = '',
     defaultLabel = '',
     children
   }: {
@@ -25,6 +28,9 @@
     iconClass?: string
     menuClass?: string
     liClass?: string
+    iconStyle?: string
+    menuStyle?: string
+    liStyle?: string
     defaultLabel?: string
     children?: Snippet<[string]>
   } = $props()
@@ -36,16 +42,23 @@
 >
   {#snippet button()}
     <button {style} class={Class}>
-      <TranslateIcon {width} {strokeWidth} {stroke} class={iconClass} />
+      <TranslateIcon
+        {width}
+        {strokeWidth}
+        {stroke}
+        class={iconClass}
+        style={iconStyle}
+      />
     </button>
   {/snippet}
   {#snippet contents()}
-    <ul class={menuClass} transition:slide>
+    <ul class={menuClass} style={menuStyle} transition:slide>
       {#each store.locales as locale}
         <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
         <!-- svelte-ignore a11y_click_events_have_key_events -->
         <li
           class={liClass}
+          style={liStyle}
           onclick={() => {
             store.setting(locale)
           }}
@@ -62,6 +75,8 @@
         onclick={() => {
           store.setting('sync')
         }}
+        class={liClass}
+        style={liStyle}
       >
         {defaultLabel ||
           store.translate({
