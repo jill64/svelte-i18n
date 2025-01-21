@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Menu } from '@jill64/svelte-menu'
+  import { slide } from 'svelte/transition'
   import { store } from './store.svelte'
   import TranslateIcon from './TranslateIcon.svelte'
 
@@ -12,7 +13,8 @@
     iconClass = '',
     menuClass = '',
     liClass = '',
-    aClass = ''
+    aClass = '',
+    defaultLabel = ''
   }: {
     style?: string
     Class?: string
@@ -23,6 +25,7 @@
     menuClass?: string
     liClass?: string
     aClass?: string
+    defaultLabel?: string
   } = $props()
 </script>
 
@@ -33,7 +36,7 @@
     </button>
   {/snippet}
   {#snippet contents()}
-    <ul class={menuClass}>
+    <ul class={menuClass} transition:slide>
       {#each store.locales as locale}
         <li class={liClass}>
           <a class={aClass} href={store.altered(locale)}>{locale}</a>
