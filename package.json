@@ -80,6 +80,6 @@
     "@jill64/svelte-html": "2.0.0",
     "@jill64/svelte-storage": "2.0.0",
     "accept-language": "3.0.20",
-    "svelte-baked-cookie": "2.0.1"
+    "svelte-baked-cookie": "2.0.2"
   }
 }
