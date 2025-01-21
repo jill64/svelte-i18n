@@ -1,11 +1,14 @@
 <script lang="ts">
   import { page } from '$app/state'
   import { LanguageManager, LocaleAlternates } from '$lib'
+  import LanguageSwitcher from '$lib/LanguageSwitcher.svelte'
+  import { theme } from '@jill64/npm-demo-layout'
   import { i } from '../../i18n'
 </script>
 
 <LanguageManager />
 <LocaleAlternates />
+<LanguageSwitcher stroke={theme.isDark ? '#FFF' : '#000'} />
 <p>{page.url.href}</p>
 <p>
   {i.translate({
