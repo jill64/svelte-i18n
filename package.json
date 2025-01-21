@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/svelte-i18n.git",
-    "image": "https://opengraph.githubassets.com/027d7e72d21c0e19df2af0c270768a093066fe4b678b4a9c5e0ac0a37b73b6fc/jill64/svelte-i18n"
+    "image": "https://opengraph.githubassets.com/cec509d758ff76a03692f40ab93e8344ebffe7f8d09057f115e8221a3b17fa73/jill64/svelte-i18n"
   },
   "publishConfig": {
     "access": "public"
@@ -62,22 +62,23 @@
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
     "@jill64/eslint-config-svelte": "2.0.4",
-    "@jill64/npm-demo-layout": "2.0.6",
+    "@jill64/npm-demo-layout": "2.0.12",
     "@jill64/playwright-config": "2.4.2",
     "@jill64/prettier-config": "1.0.0",
     "@jill64/sentry-sveltekit-cloudflare": "2.0.5",
     "@jill64/universal-sanitizer": "1.4.0",
     "@playwright/test": "1.49.1",
     "@sveltejs/adapter-cloudflare": "5.0.1",
-    "@sveltejs/kit": "2.15.1",
+    "@sveltejs/kit": "2.16.1",
     "@sveltejs/vite-plugin-svelte": "5.0.3",
-    "svelte": "5.16.0",
+    "svelte": "5.19.1",
     "svelte-page-tab": "2.0.4",
-    "typescript": "5.7.2",
-    "vite": "6.0.6"
+    "typescript": "5.7.3",
+    "vite": "6.0.11"
   },
   "dependencies": {
     "@jill64/svelte-html": "2.0.0",
+    "@jill64/svelte-menu": "2.0.0",
     "@jill64/svelte-storage": "2.0.0",
     "accept-language": "3.0.20",
     "svelte-baked-cookie": "2.0.2"

@@ -36,6 +36,43 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
       })
     })) satisfies Handle
 
+  /**
+   * Creates a string that replaces the current url with the specified locale.
+   * If no locale is specified, a locale parameter is created with the locale parameter removed.
+   */
+  let altered = (locale?: string) => {
+    const {
+      route: { id: route_id },
+      url
+    } = page
+
+    const replaceIndex = route_id
+      ? route_id
+          .split('/')
+          .filter((x) => !x.includes('('))
+          .indexOf(slug) + baseDepth
+      : -1
+
+    const pathArray = url.pathname.split('/')
+
+    if (replaceIndex === -1) {
+      return ''
+    }
+
+    const path = [
+      ...pathArray.slice(0, replaceIndex),
+      ...(locale ? [locale] : []),
+      ...pathArray.slice(replaceIndex + 1)
+    ].join('/')
+
+    const next = new URL(url)
+    next.pathname = path
+
+    return next.href
+  }
+
+  store.altered = altered
+
   return {
     get locale() {
       /**
@@ -53,41 +90,6 @@ export const init = <Locale extends string>(options: Options<Locale>) => {
       return pick(getLocale(page.params))
     },
     get altered() {
-      /**
-       * Creates a string that replaces the current url with the specified locale.
-       * If no locale is specified, a locale parameter is created with the locale parameter removed.
-       */
-      const {
-        route: { id: route_id },
-        url
-      } = page
-
-      const replaceIndex = route_id
-        ? route_id
-            .split('/')
-            .filter((x) => !x.includes('('))
-            .indexOf(slug) + baseDepth
-        : -1
-
-      const pathArray = url.pathname.split('/')
-
-      const altered = (locale?: string) => {
-        if (replaceIndex === -1) {
-          return ''
-        }
-
-        const path = [
-          ...pathArray.slice(0, replaceIndex),
-          ...(locale ? [locale] : []),
-          ...pathArray.slice(replaceIndex + 1)
-        ].join('/')
-
-        const next = new URL(url)
-        next.pathname = path
-
-        return next.href
-      }
-
       return altered
     },
     get match() {

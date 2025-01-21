@@ -1,7 +1,9 @@
 let acceptLanguages = $state<string | null>(null)
 let locale = $state<string | undefined>(undefined)
 let navigators = $state<readonly string[]>([])
+let locales = $state<string[]>([])
 let translate = $state<(_: Record<string, string>) => string>(({}) => '')
+let setting = $state<(locale: string) => unknown>(() => {})
 
 export const store = {
   get acceptLanguages() {
@@ -16,6 +18,12 @@ export const store = {
   set locale(value) {
     locale = value
   },
+  get locales() {
+    return locales
+  },
+  set locales(value) {
+    locales = value
+  },
   get navigators() {
     return navigators
   },
@@ -27,5 +35,11 @@ export const store = {
   },
   get translate() {
     return translate
+  },
+  get setting() {
+    return setting
+  },
+  set setting(value) {
+    setting = value
   }
 }
