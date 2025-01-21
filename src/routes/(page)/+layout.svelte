@@ -8,7 +8,11 @@
 
 <LanguageManager />
 <LocaleAlternates />
-<LanguageSwitcher stroke={theme.isDark ? '#FFF' : '#000'} />
+<LanguageSwitcher
+  stroke={theme.isDark ? '#FFF' : '#000'}
+  menuStyle="border-radius: 1rem; position: absolute; background: #AAA; z-index: 10; display: flex; flex-direction: column; padding: 1rem;"
+  aStyle="padding: 1rem; color: #000;"
+/>
 <p>{page.url.href}</p>
 <p>
   {i.translate({

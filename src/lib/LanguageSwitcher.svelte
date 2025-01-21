@@ -13,11 +13,9 @@
     strokeWidth = 2,
     iconClass = '',
     menuClass = '',
-    liClass = '',
     aClass = '',
     iconStyle = '',
     menuStyle = '',
-    liStyle = '',
     aStyle = '',
     children
   }: {
@@ -44,22 +42,26 @@
 >
   {#snippet button()}
     <button {style} class={Class}>
-      <TranslateIcon {width} {strokeWidth} {stroke} class={iconClass} style={iconStyle} />
+      <TranslateIcon
+        {width}
+        {strokeWidth}
+        {stroke}
+        class={iconClass}
+        style={iconStyle}
+      />
     </button>
   {/snippet}
   {#snippet contents()}
-    <ul class={menuClass} style={menuStyle} transition:slide>
+    <div class={menuClass} style={menuStyle} transition:slide>
       {#each store.locales as locale}
-        <li class={liClass} style={liStyle}>
-          <a class={aClass} href={store.altered(locale)} style={aStyle}>
-            {#snippet fallback(label: string)}
-              {label}
-            {/snippet}
-            {@render (children ?? fallback)(locale)}
-          </a>
-        </li>
+        <a class={aClass} href={store.altered(locale)} style={aStyle}>
+          {#snippet fallback(label: string)}
+            {label}
+          {/snippet}
+          {@render (children ?? fallback)(locale)}
+        </a>
       {/each}
-    </ul>
+    </div>
   {/snippet}
 </Menu>
 

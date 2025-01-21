@@ -52,11 +52,9 @@
     </button>
   {/snippet}
   {#snippet contents()}
-    <ul class={menuClass} style={menuStyle} transition:slide>
+    <div class={menuClass} style={menuStyle} transition:slide>
       {#each store.locales as locale}
-        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <li
+        <button
           class={liClass}
           style={liStyle}
           onclick={() => {
@@ -67,11 +65,9 @@
             {label}
           {/snippet}
           {@render (children ?? fallback)(locale)}
-        </li>
+        </button>
       {/each}
-      <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-      <!-- svelte-ignore a11y_click_events_have_key_events -->
-      <li
+      <button
         onclick={() => {
           store.setting('sync')
         }}
@@ -83,8 +79,8 @@
             en: 'Default',
             ja: 'デフォルト'
           })}
-      </li>
-    </ul>
+      </button>
+    </div>
   {/snippet}
 </Menu>
 
