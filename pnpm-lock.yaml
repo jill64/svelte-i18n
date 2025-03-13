@@ -12,8 +12,8 @@ importers:
         specifier: 2.0.0
         version: 2.0.0(@sveltejs/kit@2.16.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.6)(vite@6.0.11))(svelte@5.19.6)(vite@6.0.11))(svelte@5.19.6)
       '@jill64/svelte-menu':
-        specifier: 2.0.0
-        version: 2.0.0(svelte@5.19.6)
+        specifier: 2.0.1
+        version: 2.0.1(svelte@5.19.6)
       '@jill64/svelte-storage':
         specifier: 2.0.0
         version: 2.0.0(@sveltejs/kit@2.16.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.6)(vite@6.0.11))(svelte@5.19.6)(vite@6.0.11))(svelte@5.19.6)
@@ -507,6 +507,11 @@ packages:
 
   '@jill64/svelte-menu@2.0.0':
     resolution: {integrity: sha512-Q3IOGWQy6hgGo+5Q/nTaxVASl832UVbCSnY7Wm7zTKUZzH6njwSCKYAOjss4bD/ciSrBHqJWxuWcvw9SCSgQ/Q==}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  '@jill64/svelte-menu@2.0.1':
+    resolution: {integrity: sha512-thmKHTqwZFWcMoEDnvmVP9R/ie/A0H7zPfYwbVTpOYPhNT0Xy9oinGIhWWSvjQQoSCL8y8PR+cbJgd0Wm0Y8yQ==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -2013,6 +2018,10 @@ snapshots:
       svelte: 5.19.6
 
   '@jill64/svelte-menu@2.0.0(svelte@5.19.6)':
+    dependencies:
+      svelte: 5.19.6
+
+  '@jill64/svelte-menu@2.0.1(svelte@5.19.6)':
     dependencies:
       svelte: 5.19.6
 
