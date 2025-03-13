@@ -1,6 +1,6 @@
 {
   "name": "@jill64/svelte-i18n",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "🌍 i18n toolkit for SvelteKit",
   "main": "dist/index.js",
   "type": "module",
@@ -46,13 +46,13 @@
   ],
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && npm run package",
-    "preview": "npm run build && vite preview",
-    "prepack": "npm run build",
-    "package": "svelte-kit sync && npx @sveltejs/package && npx publint",
-    "check": "svelte-kit sync && npx svelte-check",
-    "lint": "npm run check && npx eslint .",
-    "format": "npx psvx",
+    "build": "vite build && bun run package",
+    "preview": "bun run build && vite preview",
+    "prepack": "bun run build",
+    "package": "svelte-kit sync && bunx @sveltejs/package && bunx publint",
+    "check": "svelte-kit sync && bunx svelte-check",
+    "lint": "bun run check && bunx eslint .",
+    "format": "bunx psvx",
     "test": "playwright test"
   },
   "peerDependencies": {
@@ -61,24 +61,24 @@
   },
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
-    "@jill64/eslint-config-svelte": "2.0.6",
+    "@jill64/eslint-config-svelte": "2.2.1",
     "@jill64/npm-demo-layout": "2.0.15",
-    "@jill64/playwright-config": "2.4.2",
+    "@jill64/playwright-config": "3.0.0",
     "@jill64/prettier-config": "1.0.0",
     "@jill64/sentry-sveltekit-cloudflare": "2.0.6",
     "@jill64/universal-sanitizer": "1.4.1",
-    "@playwright/test": "1.50.1",
-    "@sveltejs/adapter-cloudflare": "5.0.1",
-    "@sveltejs/kit": "2.16.1",
+    "@playwright/test": "1.51.0",
+    "@sveltejs/adapter-cloudflare": "5.0.3",
+    "@sveltejs/kit": "2.19.0",
     "@sveltejs/vite-plugin-svelte": "5.0.3",
-    "svelte": "5.19.6",
+    "svelte": "5.23.0",
     "svelte-page-tab": "2.0.5",
-    "typescript": "5.7.3",
-    "vite": "6.0.11"
+    "typescript": "5.8.2",
+    "vite": "6.2.1"
   },
   "dependencies": {
     "@jill64/svelte-html": "2.0.0",
-    "@jill64/svelte-menu": "2.0.0",
+    "@jill64/svelte-menu": "2.0.1",
     "@jill64/svelte-storage": "2.0.0",
     "accept-language": "3.0.20",
     "svelte-baked-cookie": "2.0.2"
