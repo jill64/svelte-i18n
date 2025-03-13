@@ -12,12 +12,6 @@
   const changeToSync = () => {
     i.setting = 'sync'
   }
-
-  $inspect({
-    setting: i.setting,
-    locale: i.locale,
-    translate_result: i.translate({ en: 'Hello World', ja: 'こんにちは、世界' })
-  })
 </script>
 
 <p>i.locale = {i.locale}</p>

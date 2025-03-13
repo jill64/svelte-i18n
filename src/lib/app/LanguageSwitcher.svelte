@@ -53,7 +53,7 @@
   {/snippet}
   {#snippet contents()}
     <div class={menuClass} style={menuStyle} transition:slide>
-      {#each store.locales as locale}
+      {#each store.locales as locale (locale)}
         <button
           class={liClass}
           style={liStyle}

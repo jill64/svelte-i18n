@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  {#each store.locales.filter((x) => x !== store.locale) as lang}
+  {#each store.locales.filter((x) => x !== store.locale) as lang (lang)}
     {@const href = store.altered(lang)}
     {#if href}
       <link rel="alternate" hreflang={lang} {href} />
