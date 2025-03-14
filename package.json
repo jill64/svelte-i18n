@@ -62,7 +62,7 @@
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
     "@jill64/eslint-config-svelte": "2.2.1",
-    "@jill64/npm-demo-layout": "2.0.15",
+    "@jill64/npm-demo-layout": "2.0.16",
     "@jill64/playwright-config": "3.0.0",
     "@jill64/prettier-config": "1.0.0",
     "@jill64/sentry-sveltekit-cloudflare": "2.0.6",
@@ -73,7 +73,7 @@
     "svelte": "5.23.0",
     "svelte-page-tab": "2.0.5",
     "typescript": "5.8.2",
-    "vite": "6.2.1"
+    "vite": "6.2.2"
   },
   "dependencies": {
     "@jill64/svelte-html": "2.0.0",
